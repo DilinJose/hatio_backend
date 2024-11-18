@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require("express")
 const cors = require('cors');
 const mongoose = require('mongoose');
@@ -31,7 +32,7 @@ app.get('/project/:uid', async (req, res) => {
     }
 });
 
-mongoose.connect("mongodb+srv://dilinjose:dilin@cluster0.kxrev.mongodb.net/project_crud?retryWrites=true&w=majority&appName=Cluster0")
+mongoose.connect(process.env.MONGODB_URI)
     .then(() => {
         console.log("connnected to database")
     })
